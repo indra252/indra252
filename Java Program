@@ -1,0 +1,141 @@
+import java.util.Scanner;
+
+class Cab {
+    int price;
+    String details;
+
+    public void booking() {
+        System.out.println("Cab is booked");
+        System.out.println("Travel cost is: " + this.price);
+    }
+
+    public void displayDetails() {
+        System.out.println(details);
+    }
+}
+
+class HatchBack extends Cab {
+    public HatchBack() {
+        price = 50;
+        details = "HatchBack details";
+    }
+}
+
+class Sedan extends Cab {
+    public Sedan() {
+        price = 100;
+        details = "Sedan details";
+    }
+}
+
+class SUV extends Cab {
+    public SUV() {
+        price = 500;
+        details = "SUV details";
+    }
+}
+
+public class Ola {
+    Cab c;
+
+    public static void main(String[] args) {
+        System.out.println("\nWelcome to the Ola car booking\n");
+        System.out.println("1 ==> HatchBack");
+        System.out.println("2 ==> Sedan");
+        System.out.println("3 ==> SUV");
+        System.out.println("4 ==> Exit the application");
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("\nEnter your choice: ");
+        int choice = sc.nextInt();
+
+        Ola o1 = new Ola();
+
+        switch (choice) {
+            case 1:
+                System.out.println("\nYou have selected HatchBack\n");
+                o1.c = new HatchBack();
+                break;
+            case 2:
+                System.out.println("\nYou have selected Sedan\n");
+                o1.c = new Sedan();
+                break;
+            case 3:
+                System.out.println("\nYou have selected SUV\n");
+                o1.c = new SUV();
+                break;
+            case 4:
+                System.out.println("\nThank you for using Ola\n");
+                System.exit(0);
+            default:
+                System.out.println("\nEnter a valid input\n");
+        }
+
+       
+        System.out.println("1 ==> Chennai");
+        System.out.println("2 ==> Madurai");
+        System.out.println("3 ==> Tirchi");
+        System.out.println("4 ==> Rameshwaram");
+        System.out.println("5 ==> Kochi");
+
+        System.out.print("\nEnter Pickup location: ");
+        int pickup = sc.nextInt();
+
+        switch (pickup) {
+            case 1:
+                System.out.println("\nYou have selected Chennai\n");
+                break;
+            case 2:
+                System.out.println("\nYou have selected Madurai\n");
+                break;
+            case 3:
+                System.out.println("\nYou have selected Tirchi\n");
+                break;
+            case 4:
+                System.out.println("\nYou have selected Rameshwarem\n");
+                break;
+            case 5:
+                System.out.println("\nYou have selected Kochi\n");
+                break;
+            default:
+                System.out.println("\nEnter a correct Location\n");
+        }
+
+        System.out.print("\nEnter Drop location: ");
+        int drop = sc.nextInt();
+
+        switch (drop) {
+            case 1:
+                System.out.println("\nYou have selected Chennai\n");
+                break;
+            case 2:
+                System.out.println("\nYou have selected Madurai\n");
+                break;
+            case 3:
+                System.out.println("\nYou have selected Tirchi\n");
+                break;
+            case 4:
+                System.out.println("\nYou have selected Rameshwarem\n");
+                break;
+            case 5:
+                System.out.println("\nYou have selected Kochi\n");
+                break;
+            default:
+                System.out.println("\nEnter a Location\n");
+        }
+
+        if(pickup != drop){
+            if (o1.c != null) {
+                o1.c.booking();
+                o1.c.displayDetails();
+            } else {
+                System.out.println("\nYou have not booked the cab\n");
+            }
+        }else{
+            System.out.println("\nCannot book can to same place");
+        }
+        sc.close();
+       
+    }      
+}
